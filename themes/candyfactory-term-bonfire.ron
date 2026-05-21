@@ -1,0 +1,54 @@
+// ════════════════════════════════════════════════════════════════
+// CandyFactory · BONFIRE · cosmic-term color scheme
+//
+// Install: ~/.config/cosmic/com.system76.CosmicTerm/v1/color_schemes/CandyFactory-Bonfire.ron
+// Or via cosmic-term → View → Color schemes → Import.
+//
+// Maps the 16-color ANSI palette to CandyFactory's candy hues
+// on the "candied dark" terminal surface used by Bonfire CLI.
+// ════════════════════════════════════════════════════════════════
+(
+    name: "CandyFactory Bonfire",
+
+    foreground:        Some("#fff8e7"),   // cream
+    background:        Some("#14101e"),   // deep ink (slightly darker than --ink)
+    cursor:            Some("#ffd84d"),   // butter — the bonfire spark
+    bright_foreground: Some("#fffaf0"),   // paper
+    dim_foreground:    Some("#b4a8c2"),
+
+    // —— Selection ——
+    selection_foreground: Some("#fff8e7"),
+    selection_background: Some("#3a2f4f"),
+
+    // —— ANSI 16-color palette ——
+    normal: (
+        black:   "#1a1626",   // ink
+        red:     "#ff3b6b",   // cherry / hot
+        green:   "#5fd4c4",   // mint
+        yellow:  "#ffd84d",   // butter
+        blue:    "#5fb8ff",   // sky
+        magenta: "#ff5fa2",   // pink
+        cyan:    "#84e3d5",   // bright mint
+        white:   "#d6cde0",
+    ),
+    bright: (
+        black:   "#4a3f5e",   // ink-soft
+        red:     "#ff6b8f",   // bright cherry
+        green:   "#84e3d5",
+        yellow:  "#ffe27a",
+        blue:    "#8acdff",
+        magenta: "#a96bff",   // grape
+        cyan:    "#a4ecdf",
+        white:   "#fff8e7",   // cream
+    ),
+    dim: Some((
+        black:   "#0e0a16",
+        red:     "#cc2f55",
+        green:   "#4cb09e",
+        yellow:  "#cca835",
+        blue:    "#4c8fcc",
+        magenta: "#cc4c80",
+        cyan:    "#6caa9e",
+        white:   "#8e80a3",
+    )),
+)

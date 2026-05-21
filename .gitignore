@@ -1,0 +1,16 @@
+# macOS / Linux desktop debris
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Local installer test output (if you ever stage installs)
+/tmp-install/
+
+# COSMIC config snapshots people sometimes drop in here while iterating
+*.ron.bak

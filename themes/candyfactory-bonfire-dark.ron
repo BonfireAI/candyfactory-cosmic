@@ -1,0 +1,104 @@
+// ════════════════════════════════════════════════════════════════
+// CandyFactory · BONFIRE (Dark) · COSMIC Desktop theme
+//
+// Install:  ~/.config/cosmic/com.system76.CosmicTheme.Dark/v1/CandyFactory-Bonfire
+// Or import via COSMIC Settings → Desktop → Appearance → Import.
+//
+// Generated from candy-factory.ai design tokens.
+// See ../CLAUDE.md for the regeneration recipe.
+// ════════════════════════════════════════════════════════════════
+(
+    palette: Dark((
+        name: "CandyFactory-Bonfire-Pink",
+
+        // —— Standard candy hues ——
+        blue:   (red: 0.372549, green: 0.721569, blue: 1.000000, alpha: 1.0),  // #5fb8ff sky
+        red:    (red: 1.000000, green: 0.231373, blue: 0.419608, alpha: 1.0),  // #ff3b6b cherry
+        green:  (red: 0.372549, green: 0.831373, blue: 0.768627, alpha: 1.0),  // #5fd4c4 mint
+        yellow: (red: 1.000000, green: 0.847059, blue: 0.301961, alpha: 1.0),  // #ffd84d butter
+
+        // —— Surface grays (dark ramp) ——
+        gray_1: (red: 0.078431, green: 0.062745, blue: 0.117647, alpha: 1.0),  // #14101e
+        gray_2: (red: 0.101961, green: 0.086275, blue: 0.149020, alpha: 1.0),  // #1a1626 ink
+        gray_3: (red: 0.133333, green: 0.109804, blue: 0.188235, alpha: 1.0),  // #221c30
+
+        // —— Neutral ramp (darkest → lightest) ——
+        neutral_0:  (red: 0.054902, green: 0.039216, blue: 0.086275, alpha: 1.0),  // #0e0a16
+        neutral_1:  (red: 0.078431, green: 0.062745, blue: 0.117647, alpha: 1.0),  // #14101e
+        neutral_2:  (red: 0.101961, green: 0.086275, blue: 0.149020, alpha: 1.0),  // #1a1626
+        neutral_3:  (red: 0.133333, green: 0.109804, blue: 0.188235, alpha: 1.0),  // #221c30
+        neutral_4:  (red: 0.172549, green: 0.141176, blue: 0.239216, alpha: 1.0),  // #2c243d
+        neutral_5:  (red: 0.227451, green: 0.184314, blue: 0.309804, alpha: 1.0),  // #3a2f4f
+        neutral_6:  (red: 0.290196, green: 0.247059, blue: 0.368627, alpha: 1.0),  // #4a3f5e ink-soft
+        neutral_7:  (red: 0.419608, green: 0.364706, blue: 0.501961, alpha: 1.0),  // #6b5d80
+        neutral_8:  (red: 0.556863, green: 0.501961, blue: 0.639216, alpha: 1.0),  // #8e80a3
+        neutral_9:  (red: 0.705882, green: 0.658824, blue: 0.760784, alpha: 1.0),  // #b4a8c2
+        neutral_10: (red: 0.839216, green: 0.803922, blue: 0.878431, alpha: 1.0),  // #d6cde0
+
+        // —— Bright variants ——
+        bright_green:  (red: 0.517647, green: 0.890196, blue: 0.835294, alpha: 1.0),
+        bright_red:    (red: 1.000000, green: 0.419608, blue: 0.560784, alpha: 1.0),
+        bright_orange: (red: 1.000000, green: 0.725490, blue: 0.400000, alpha: 1.0),
+
+        // —— Extended (used for syntax highlighting, etc) ——
+        ext_warm_grey: (red: 0.556863, green: 0.501961, blue: 0.639216, alpha: 1.0),
+        ext_orange:    (red: 1.000000, green: 0.647059, blue: 0.301961, alpha: 1.0),
+        ext_yellow:    (red: 1.000000, green: 0.847059, blue: 0.301961, alpha: 1.0),
+        ext_blue:      (red: 0.372549, green: 0.721569, blue: 1.000000, alpha: 1.0),
+        ext_purple:    (red: 0.662745, green: 0.419608, blue: 1.000000, alpha: 1.0),  // grape
+        ext_pink:      (red: 1.000000, green: 0.372549, blue: 0.635294, alpha: 1.0),  // pink
+        ext_indigo:    (red: 0.521569, green: 0.439216, blue: 1.000000, alpha: 1.0),
+
+        // —— Accent palette (these populate the accent color picker) ——
+        accent_blue:      (red: 0.372549, green: 0.721569, blue: 1.000000, alpha: 1.0),  // sky
+        accent_red:       (red: 1.000000, green: 0.231373, blue: 0.419608, alpha: 1.0),  // cherry
+        accent_green:     (red: 0.372549, green: 0.831373, blue: 0.768627, alpha: 1.0),  // mint
+        accent_warm_grey: (red: 0.705882, green: 0.658824, blue: 0.760784, alpha: 1.0),
+        accent_orange:    (red: 1.000000, green: 0.647059, blue: 0.301961, alpha: 1.0),
+        accent_yellow:    (red: 1.000000, green: 0.847059, blue: 0.301961, alpha: 1.0),  // butter
+        accent_purple:    (red: 0.662745, green: 0.419608, blue: 1.000000, alpha: 1.0),  // grape
+        accent_pink:      (red: 1.000000, green: 0.372549, blue: 0.635294, alpha: 1.0),  // pink ★ default
+        accent_indigo:    (red: 0.521569, green: 0.439216, blue: 1.000000, alpha: 1.0),
+    )),
+
+    // —— Spacing scale (matches CandyFactory --space-* tokens) ——
+    spacing: (
+        space_none: 0,
+        space_xxxs: 4,
+        space_xxs:  8,
+        space_xs:  12,
+        space_s:   16,
+        space_m:   24,
+        space_l:   32,
+        space_xl:  48,
+        space_xxl: 64,
+        space_xxxl: 128,
+    ),
+
+    // —— Corner radii: sticker-card aesthetic, slightly round ——
+    corner_radii: (
+        radius_0:  (0.0,  0.0,  0.0,  0.0),
+        radius_xs: (4.0,  4.0,  4.0,  4.0),
+        radius_s:  (8.0,  8.0,  8.0,  8.0),    // --r-sm
+        radius_m:  (12.0, 12.0, 12.0, 12.0),   // --r-md
+        radius_l:  (18.0, 18.0, 18.0, 18.0),   // --r-lg
+        radius_xl: (24.0, 24.0, 24.0, 24.0),
+    ),
+
+    // —— Surface & accent overrides ——
+    bg_color:               Some((red: 0.101961, green: 0.086275, blue: 0.149020, alpha: 1.0)),  // ink
+    text_tint:              Some((red: 1.000000, green: 0.972549, blue: 0.905882)),              // cream
+    accent:                 Some((red: 1.000000, green: 0.372549, blue: 0.635294)),              // pink
+    success:                Some((red: 0.372549, green: 0.831373, blue: 0.768627)),              // mint
+    warning:                Some((red: 1.000000, green: 0.847059, blue: 0.301961)),              // butter
+    destructive:            Some((red: 1.000000, green: 0.231373, blue: 0.419608)),              // cherry
+    window_hint:            Some((red: 0.662745, green: 0.419608, blue: 1.000000)),              // grape
+    neutral_tint:           Some((red: 0.290196, green: 0.247059, blue: 0.368627)),              // ink-soft
+    primary_container_bg:   Some((red: 0.133333, green: 0.109804, blue: 0.188235, alpha: 1.0)),
+    secondary_container_bg: Some((red: 0.172549, green: 0.141176, blue: 0.239216, alpha: 1.0)),
+
+    // —— Compositor & window chrome ——
+    is_frosted:  false,
+    gaps:        (4, 8),     // outer, inner — slight breathing room between tiles
+    active_hint: 3,           // 3px ink-rim feel on active window
+)

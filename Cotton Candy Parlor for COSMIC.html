@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cotton Candy Parlor · for POP_OS COSMIC</title>
+<meta name="viewport" content="width=1440">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lato:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hub.css">
+</head>
+<body>
+
+<!-- ─── top rail ─── -->
+<header class="rail">
+  <div class="rail-in">
+    <span class="rail-l">
+      <span class="dot"></span>
+      § CANDY-FACTORY.AI · COTTON CANDY PARLOR
+    </span>
+    <span class="rail-c">SWEETS · BAKING · STAY CLOSE</span>
+    <span class="rail-r">POP_OS 24.04 · COSMIC · v1.0</span>
+  </div>
+</header>
+
+<!-- ─── hero ─── -->
+<section class="stage hero">
+  <div class="halo h-pink"></div>
+  <div class="halo h-mint"></div>
+  <div class="halo h-butter"></div>
+  <div class="halo h-grape"></div>
+
+  <div class="hero-eyebrow">§ A theme + a Claude Code spec sheet</div>
+  <h1 class="hero-wordmark">
+    <span class="candy">Candy</span><span class="space">&nbsp;</span><span class="factory">Factory</span>
+    <em class="sticker-em" data-comment-anchor="98cbbaa030-em">for Pop!_OS COSMIC</em>
+  </h1>
+  <p class="hero-lead">
+    A dark + light COSMIC theme, a matching <code>cosmic-term</code>
+    color scheme, an installer, and a <code>CLAUDE.md</code> Claude Code
+    can read to rebuild the whole kit.
+  </p>
+
+  <div class="hero-chips">
+    <span class="chip pink">🍭 PARLOR · LIGHT THEME</span>
+    <span class="chip ink">🔥 BONFIRE · DARK THEME</span>
+    <span class="chip grape">🍬 cosmic-term SCHEME</span>
+    <span class="chip">▸ ONE INSTALLER</span>
+  </div>
+
+  <a class="cta" href="#install">
+    Install on my machine
+    <span class="cta-arrow">→</span>
+  </a>
+</section>
+
+<!-- ─── theme anatomy ─── -->
+<section class="stage anatomy">
+  <h2 class="sec-h">§ The theme, mapped</h2>
+  <p class="sec-sub">
+    Each CandyFactory token gets a job in the COSMIC theme.
+    The mapping below is canonical — it's what's encoded in
+    <code>themes/*.ron</code> and the <code>CLAUDE.md</code> spec.
+  </p>
+
+  <div class="mode-grid" data-comment-anchor="e3888a7b72-div">
+    <!-- BONFIRE column -->
+    <div class="mode-col">
+      <div class="mode-head bonfire">
+        🔥 BONFIRE <em>· dark</em>
+      </div>
+      <div class="mode-body bonfire-body">
+        <div class="map-row">
+          <div class="sw" style="background:#1a1626; border:2px solid #1a1626"></div>
+          <div class="map-text"><b>bg_color</b><span>--ink · #1a1626</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#fff8e7"></div>
+          <div class="map-text"><b>text_tint</b><span>--bg cream · #fff8e7</span></div>
+        </div>
+        <div class="map-row hi">
+          <div class="sw" style="background:#ff5fa2"></div>
+          <div class="map-text"><b>accent</b> ★<span>--pink · #ff5fa2</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#ff3b6b"></div>
+          <div class="map-text"><b>destructive</b><span>--brand-hot · #ff3b6b</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#5fd4c4"></div>
+          <div class="map-text"><b>success</b><span>--brand-b mint · #5fd4c4</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#ffd84d"></div>
+          <div class="map-text"><b>warning</b><span>--brand-d butter · #ffd84d</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#a96bff"></div>
+          <div class="map-text"><b>window_hint</b><span>--brand-pop grape · #a96bff</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARLOR column -->
+    <div class="mode-col">
+      <div class="mode-head parlor">
+        🍭 PARLOR <em>· light</em>
+      </div>
+      <div class="mode-body parlor-body">
+        <div class="map-row">
+          <div class="sw" style="background:#fff8e7"></div>
+          <div class="map-text"><b>bg_color</b><span>--bg cream · #fff8e7</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#1a1626"></div>
+          <div class="map-text"><b>text_tint</b><span>--ink · #1a1626</span></div>
+        </div>
+        <div class="map-row hi">
+          <div class="sw" style="background:#7e38de"></div>
+          <div class="map-text"><b>accent</b> ★<span>deepened grape · #7e38de</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#e22e59"></div>
+          <div class="map-text"><b>destructive</b><span>deepened cherry · #e22e59</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#3da394"></div>
+          <div class="map-text"><b>success</b><span>deepened mint · #3da394</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#c79900"></div>
+          <div class="map-text"><b>warning</b><span>deepened butter · #c79900</span></div>
+        </div>
+        <div class="map-row">
+          <div class="sw" style="background:#e2438e"></div>
+          <div class="map-text"><b>window_hint</b><span>deepened pink · #e2438e</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COSMIC mock ─── -->
+<section class="stage preview">
+  <h2 class="sec-h">§ How it looks in COSMIC Settings</h2>
+  <p class="sec-sub">
+    Mocked appearance pane and a focused window — both modes —
+    to sanity-check the result before you install.
+  </p>
+
+  <div class="cosmic-frame" data-comment-anchor="ac487195d9-div">
+    <div class="cosmic-titlebar">
+      <div class="tl"><i></i><i></i><i></i></div>
+      <div class="tl-title">Settings — Desktop — Appearance</div>
+    </div>
+    <div class="cosmic-body">
+      <aside class="cosmic-side">
+        <div class="cs-row active">Desktop</div>
+        <div class="cs-sub">Appearance</div>
+        <div class="cs-sub">Panel</div>
+        <div class="cs-row">Sound</div>
+        <div class="cs-row">Displays</div>
+        <div class="cs-row">Power</div>
+        <div class="cs-row">Bluetooth</div>
+      </aside>
+      <main class="cosmic-main">
+        <div class="cm-title">Appearance</div>
+
+        <div class="cm-card">
+          <div class="cm-label">Mode</div>
+          <div class="cm-modes">
+            <div class="cm-mode active">
+              <div class="mode-swatch dark">
+                <span class="ms-bg" style="background:#1a1626"></span>
+                <span class="ms-accent" style="background:#ff5fa2"></span>
+              </div>
+              <div class="ms-name">BONFIRE</div>
+            </div>
+            <div class="cm-mode">
+              <div class="mode-swatch light">
+                <span class="ms-bg" style="background:#fff8e7"></span>
+                <span class="ms-accent" style="background:#7e38de"></span>
+              </div>
+              <div class="ms-name">PARLOR</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cm-card">
+          <div class="cm-label">Accent color</div>
+          <div class="cm-accents">
+            <span class="acc star" style="background:#ff5fa2"></span>
+            <span class="acc"      style="background:#ff3b6b"></span>
+            <span class="acc"      style="background:#5fd4c4"></span>
+            <span class="acc"      style="background:#ffd84d"></span>
+            <span class="acc"      style="background:#a96bff"></span>
+            <span class="acc"      style="background:#5fb8ff"></span>
+          </div>
+          <div class="cm-hint">★ pink — default for Bonfire</div>
+        </div>
+
+        <div class="cm-card">
+          <div class="cm-label">Window hint color</div>
+          <div class="cm-accents small">
+            <span class="acc" style="background:#a96bff"></span>
+            <span class="acc star" style="background:#a96bff; outline-color:#a96bff"></span>
+          </div>
+          <div class="cm-hint">Grape — the rim on a focused window.</div>
+        </div>
+
+        <!-- mock window with the accent applied -->
+        <div class="cm-window">
+          <div class="cmw-bar">
+            <i style="background:#ff3b6b"></i>
+            <i style="background:#ffd84d"></i>
+            <i style="background:#5fd4c4"></i>
+            <span>~/candyfactory — bonfire</span>
+          </div>
+          <div class="cmw-body">
+            <div class="cmw-btn primary">▸ Bake a batch</div>
+            <div class="cmw-btn ghost">Open recipe…</div>
+            <div class="cmw-bar2">
+              <div class="cmw-pip ok"></div>
+              <div class="cmw-pip warn"></div>
+              <div class="cmw-pip dest"></div>
+              <div class="cmw-pip hint"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Claude Code prompt ─── -->
+<section class="stage prompt-sec" data-comment-anchor="c2e31d5ec6-section">
+  <h2 class="sec-h">§ Hand it to Claude Code</h2>
+  <p class="sec-sub">
+    The directory ships with a <code>CLAUDE.md</code> spec sheet — token table,
+    RON schema, install paths, validation checklist. Run <code>claude</code> in
+    the directory and paste the snippet below.
+  </p>
+
+  <div class="prompt-card">
+    <div class="pc-bar">
+      <i></i><i></i><i></i>
+      <span class="pc-title">~ § paste-into-claude-code.md</span>
+      <button class="pc-copy" id="copy-prompt">Copy ↻</button>
+    </div>
+    <pre id="prompt-text"># BUILD THE CANDYFACTORY COSMIC THEME
+
+You are in the candyfactory-cosmic/ directory.
+
+1.  Read CLAUDE.md end-to-end.
+2.  Validate themes/*.ron against §4 (Schema) and §5 (Token mapping).
+    Fix any mismatch silently and report what you changed.
+3.  Generate ~/.config/cosmic/com.system76.CosmicSettings/v1/accent_palette_dark
+    and accent_palette_light per §6 Step 2.
+4.  Run ./install.sh --dry-run, show me the plan, wait for "go".
+5.  On "go": run ./install.sh, then print the diff of files written
+    and the COSMIC paths that now have CandyFactory content.
+6.  Tail journalctl --user -u cosmic-comp for 5s after install to catch
+    config parse errors. If clean, print § Sweets, baking.
+
+Do not invent colors. Do not enable is_frosted. Do not round corners
+past radius_l = 18. Voice = stoic, plain, tactile — match the README.</pre>
+  </div>
+
+  <p class="sec-note">
+    Or just open <a href="CLAUDE.md">CLAUDE.md</a> directly — it's the
+    full spec, including the COSMIC RON schema and the canonical color table.
+  </p>
+</section>
+
+<!-- ─── install ─── -->
+<section class="stage install" id="install" data-comment-anchor="0b167b9ef8-section">
+  <h2 class="sec-h">§ Install</h2>
+  <p class="sec-sub">
+    Drop the folder anywhere, then run the installer. It's idempotent
+    and reversible.
+  </p>
+
+  <div class="term">
+    <div class="term-bar">
+      <i></i><i></i><i></i>
+      <span>~ § bash</span>
+    </div>
+    <pre><span class="t-prompt">~/candyfactory-cosmic ▸</span> chmod +x install.sh
+<span class="t-prompt">~/candyfactory-cosmic ▸</span> ./install.sh --dry-run
+<span class="t-dim">  ╭──────────────────────────────────────────────╮</span>
+<span class="t-dim">  │  🍭  CandyFactory  ·  Cotton Candy Parlor    │</span>
+<span class="t-dim">  │      for POP!_OS 24.04 · COSMIC              │</span>
+<span class="t-dim">  ╰──────────────────────────────────────────────╯</span>
+  <span class="t-arrow">▸</span>  <span class="t-ok">Installing Bonfire (dark) theme</span>
+  <span class="t-dim">·  would: cp themes/candyfactory-bonfire-dark.ron …</span>
+  <span class="t-arrow">▸</span>  <span class="t-ok">Installing Parlor (light) theme</span>
+  <span class="t-arrow">▸</span>  <span class="t-ok">Installing cosmic-term color scheme</span>
+
+<span class="t-prompt">~/candyfactory-cosmic ▸</span> ./install.sh
+<span class="t-ok">  ✓ Sweets, baking. Stay close.</span>
+
+<span class="t-prompt">~/candyfactory-cosmic ▸</span> <span class="cur"></span></pre>
+  </div>
+
+  <div class="next-steps">
+    <h3>Next, in COSMIC:</h3>
+    <ol>
+      <li><b>Settings → Desktop → Appearance →</b> Import → pick <code>themes/candyfactory-bonfire-dark.ron</code> (or the <code>-parlor-light.ron</code>).</li>
+      <li><b>cosmic-term → View → Color schemes →</b> Import → pick <code>themes/candyfactory-term-bonfire.ron</code>.</li>
+    </ol>
+    <p class="undo">To revert: <code>./install.sh --uninstall</code></p>
+  </div>
+</section>
+
+<!-- ─── files ─── -->
+<section class="stage files">
+  <h2 class="sec-h">§ The kit on disk</h2>
+
+  <div class="tree-card">
+<pre class="tree">candyfactory-cosmic/
+├── <a href="Cotton Candy Parlor for COSMIC.html">Cotton Candy Parlor for COSMIC.html</a>   <span class="t-note"># this page</span>
+├── <a href="CLAUDE.md">CLAUDE.md</a>                                       <span class="t-note"># Claude Code spec sheet</span>
+├── <a href="README.md">README.md</a>                                       <span class="t-note"># human-facing notes</span>
+├── <a href="install.sh">install.sh</a>                                      <span class="t-note"># bash installer · --dry-run / --uninstall</span>
+├── themes/
+│   ├── <a href="themes/candyfactory-bonfire-dark.ron">candyfactory-bonfire-dark.ron</a>           <span class="t-note"># COSMIC dark</span>
+│   ├── <a href="themes/candyfactory-parlor-light.ron">candyfactory-parlor-light.ron</a>           <span class="t-note"># COSMIC light</span>
+│   └── <a href="themes/candyfactory-term-bonfire.ron">candyfactory-term-bonfire.ron</a>           <span class="t-note"># cosmic-term scheme</span>
+└── assets/
+    ├── candyfactory-logo.png
+    └── parlor.css                                  <span class="t-note"># reference tokens</span></pre>
+  </div>
+</section>
+
+<!-- ─── ticker ─── -->
+<div class="ticker-row">
+  <div class="ticker">§ SWEETS BAKING · CONVEYORS WARM · POP_OS 24.04 · COSMIC THEME · CANDY-FACTORY.AI · § SWEETS BAKING · CONVEYORS WARM · POP_OS 24.04 · COSMIC THEME · CANDY-FACTORY.AI · § SWEETS BAKING · CONVEYORS WARM ·</div>
+</div>
+
+<footer>
+  <span>candy-factory.ai · cotton candy parlor</span>
+  <span>§ stay close</span>
+</footer>
+
+<script>
+  // copy button
+  const btn = document.getElementById('copy-prompt');
+  const pre = document.getElementById('prompt-text');
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(pre.textContent);
+      btn.textContent = 'Copied ✓';
+      setTimeout(() => btn.textContent = 'Copy ↻', 1400);
+    } catch(e) {
+      // fallback: select range
+      const range = document.createRange();
+      range.selectNode(pre);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      btn.textContent = 'Selected — ⌘C';
+      setTimeout(() => btn.textContent = 'Copy ↻', 2000);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+/* ============================================================================
+   parlor.css — shared parlor design system
+   Used by: /, /bonfire/, and any other parlor-themed surface.
+   Tokens ↔ identity bundle (Cotton Candy Parlor theme).
+   ============================================================================ */
+
+:root {
+  /* Background scale */
+  --bg:        #fff8e7;   /* cream */
+  --bg-soft:   #ffeec8;
+  --paper:     #ffffff;
+
+  /* Ink */
+  --ink:       #1a1626;
+  --ink-soft:  #5a4a6a;
+
+  /* Brand */
+  --brand-a:   #ff5fa2;   /* candy pink */
+  --brand-b:   #5fd4c4;   /* mint */
+  --brand-c:   #5fb8ff;   /* sky */
+  --brand-d:   #ffd84d;   /* butter */
+  --brand-hot: #ff3b6b;   /* cherry */
+  --brand-pop: #a96bff;   /* grape */
+
+  /* Type */
+  --display:   'Fredoka', sans-serif;
+  --body:      'Lato', sans-serif;
+  --mono:      'IBM Plex Mono', 'JetBrains Mono', monospace;
+
+  /* Shape */
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  18px;
+  --r-pill: 999px;
+
+  /* Stroke + shadow rhythm */
+  --stroke:        2.5px;
+  --stroke-soft:   2px;
+  --shadow-sm:     3px 3px 0 var(--ink);
+  --shadow-md:     6px 6px 0 var(--ink);
+  --shadow-lg:     8px 8px 0 var(--ink);
+}
+
+/* ── Reset ── */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; min-height: 100vh; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Sticker grid wash — soft pastel halos */
+body.parlor-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, color-mix(in oklab, var(--brand-c) 28%, transparent) 0, transparent 60px),
+    radial-gradient(circle at 80% 70%, color-mix(in oklab, var(--brand-a) 28%, transparent) 0, transparent 80px),
+    radial-gradient(circle at 60% 20%, color-mix(in oklab, var(--brand-d) 28%, transparent) 0, transparent 70px),
+    radial-gradient(circle at 30% 80%, color-mix(in oklab, var(--brand-pop) 22%, transparent) 0, transparent 90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================================
+   TOP RAIL — site-wide status strip with traffic-light dots
+   ============================================================================ */
+.rail {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 32px;
+  border-bottom: var(--stroke) solid var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--paper);
+}
+.rail .lights { display: flex; gap: 5px; }
+.rail .light  { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ink); }
+.rail .light.r { background: var(--brand-hot); animation: blink 1.6s infinite; }
+.rail .light.y { background: var(--brand-d);   animation: blink 1.6s infinite 0.5s; }
+.rail .light.g { background: var(--brand-b);   animation: blink 1.6s infinite 1s; }
+@keyframes blink { 50% { opacity: 0.35; } }
+.rail .sep   { flex: 1; height: 2px; background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px); }
+.rail .badge { padding: 4px 10px; border: 1.5px solid var(--ink); background: var(--brand-d); color: var(--ink); }
+.rail .hot   { color: var(--brand-hot); font-weight: 700; }
+.rail a      { color: inherit; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+
+/* ============================================================================
+   STAGE — page container
+   ============================================================================ */
+.stage {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 44px 32px 64px;
+}
+
+/* ============================================================================
+   EYEBROW — short label above headlines, with optional pulse dot
+   ============================================================================ */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.eyebrow .pulse {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--brand-hot);
+  box-shadow: 0 0 0 5px color-mix(in oklab, var(--brand-hot) 30%, transparent);
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse { 50% { opacity: 0.4; } }
+
+/* ============================================================================
+   STICKER HEADLINE — Fredoka tiles, ±2° rotation, hard offset shadow
+   Use:  <h1 class="sticker-h">Sweets, <em class="b">baking.</em></h1>
+   ============================================================================ */
+.sticker-h {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(48px, 6.5vw, 104px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+.sticker-h em {
+  font-style: normal;
+  display: inline-block;
+  background: var(--brand-d);
+  padding: 0.04em 0.18em 0.08em;
+  border: 4px solid var(--ink);
+  border-radius: var(--r-md);
+  transform: rotate(-2deg);
+  box-shadow: 5px 5px 0 0 var(--ink);
+}
+.sticker-h em.b   { background: var(--brand-a); transform: rotate(1.5deg); color: var(--paper); }
+.sticker-h em.c   { background: var(--brand-b); transform: rotate(-1deg); }
+.sticker-h em.s   { background: var(--brand-c); transform: rotate(1.2deg); color: var(--paper); }
+
+/* Sticker pill — small inline sticker */
+.sticker-pill {
+  display: inline-block;
+  background: var(--brand-d);
+  color: var(--ink);
+  padding: 0.04em 0.32em 0.08em;
+  border: 2.5px solid var(--ink);
+  border-radius: 8px;
+  transform: rotate(-1.5deg);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-family: var(--display);
+  font-weight: 700;
+}
+.sticker-pill.b { background: var(--brand-a); color: var(--paper); transform: rotate(1deg); }
+
+/* Body sub */
+.sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 560px;
+  margin: 0 0 28px;
+}
+.sub b { color: var(--ink); }
+
+/* ============================================================================
+   CARD — paper card with hard offset, optional top tab
+   ============================================================================ */
+.card {
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 22px 24px;
+  position: relative;
+}
+.card.tab::before {
+  content: "";
+  position: absolute;
+  top: -2px; left: 22px; right: 22px;
+  height: 22px;
+  background: var(--brand-c);
+  border: var(--stroke) solid var(--ink);
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+  transform: translateY(-100%);
+}
+.card .meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.card .meta b { color: var(--ink); }
+
+/* Batch stamp — angled ticket */
+.stamp {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--ink);
+  padding: 4px 10px;
+  background: var(--bg-soft);
+  transform: rotate(2deg);
+  display: inline-block;
+}
+.stamp b { color: var(--brand-hot); }
+
+/* ============================================================================
+   CHIPS — pill-shaped tags, color variants
+   ============================================================================ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+}
+.chip.pink   { background: var(--brand-a);   color: var(--paper); }
+.chip.butter { background: var(--brand-d);   color: var(--ink); }
+.chip.mint   { background: var(--brand-b);   color: var(--ink); }
+.chip.sky    { background: var(--brand-c);   color: var(--paper); }
+.chip.grape  { background: var(--brand-pop); color: var(--paper); }
+.chip.cherry { background: var(--brand-hot); color: var(--paper); }
+
+/* ============================================================================
+   CTA / button — hot-pink primary action
+   ============================================================================ */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-hot);
+  color: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--r-md);
+  padding: 14px 22px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: var(--shadow-md);
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.cta:hover  { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--ink); }
+.cta:active { transform: translate(2px, 2px);  box-shadow: 2px 2px 0 var(--ink); }
+.cta.ghost  { background: var(--paper); color: var(--ink); }
+.cta.butter { background: var(--brand-d); color: var(--ink); }
+.cta.sky    { background: var(--brand-c); color: var(--paper); }
+
+/* ============================================================================
+   TERMINAL — candied dark terminal frame
+   Used in: /bonfire/ cockpit + install card
+   ============================================================================ */
+.term {
+  background: #1a1626;
+  color: #ffeec8;
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--r-md);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  position: relative;
+}
+.term-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #2a1f3a;
+  border-bottom: 2px solid #000;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffd6e6;
+}
+.term-bar .dots { display: flex; gap: 6px; }
+.term-bar .dots i {
+  width: 10px; height: 10px; border-radius: 50%;
+  border: 1.5px solid #000;
+  display: block;
+}
+.term-bar .dots i:nth-child(1) { background: #ff3b6b; }
+.term-bar .dots i:nth-child(2) { background: #ffd84d; }
+.term-bar .dots i:nth-child(3) { background: #5fd4c4; }
+.term-bar .label { flex: 1; }
+.term-bar .right { color: #ffd84d; }
+.term-body {
+  padding: 16px 18px;
+  white-space: pre;
+  overflow-x: auto;
+  min-height: 240px;
+}
+.term-body .prompt    { color: var(--brand-a); font-weight: 600; }
+.term-body .ok        { color: var(--brand-b); }
+.term-body .num       { color: var(--brand-d); }
+.term-body .dim       { color: #8a7a9a; }
+.term-body .pink      { color: var(--brand-a); }
+.term-body .butter    { color: var(--brand-d); }
+.term-body .mint      { color: var(--brand-b); }
+.term-body .ink-on    { background: var(--brand-d); color: #1a1626; padding: 0 4px; border-radius: 3px; }
+.term-cursor {
+  display: inline-block;
+  width: 8px; height: 1.2em;
+  background: var(--brand-d);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 1s steps(2) infinite;
+}
+
+/* Inline command pill — one-liner with copy button */
+.cmd {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--bg-soft);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  box-shadow: var(--shadow-sm);
+}
+.cmd::before { content: "$"; color: var(--brand-b); }
+.cmd .text { color: var(--bg-soft); }
+.cmd button {
+  background: var(--brand-d);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+}
+.cmd button:hover  { background: var(--brand-a); color: var(--paper); }
+.cmd button.copied { background: var(--brand-b); }
+
+/* ============================================================================
+   FOOTER + TICKER
+   ============================================================================ */
+.ticker {
+  background: var(--ink);
+  color: var(--bg-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: var(--stroke) solid var(--ink);
+}
+.ticker-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll 40s linear infinite;
+}
+.ticker-track .dot { color: var(--brand-hot); margin: 0 22px 0 0; }
+@keyframes scroll { to { transform: translateX(-100%); } }
+
+footer.parlor-foot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 32px;
+  border-top: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+footer.parlor-foot a { color: inherit; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+footer.parlor-foot .links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* ============================================================================
+   PROGRESS — candy-stripe bar
+   ============================================================================ */
+.prog {
+  height: 14px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-pill);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: relative;
+}
+.prog i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: repeating-linear-gradient(45deg, var(--brand-hot) 0 10px, var(--brand-a) 10px 20px);
+  display: block;
+}
+.prog.butter i { background: repeating-linear-gradient(45deg, var(--brand-d) 0 10px, #ffe27a 10px 20px); }
+.prog.mint   i { background: repeating-linear-gradient(45deg, var(--brand-b) 0 10px, #8fe5d9 10px 20px); }
+.prog.sky    i { background: repeating-linear-gradient(45deg, var(--brand-c) 0 10px, #8acaf3 10px 20px); }
+.prog.grape  i { background: repeating-linear-gradient(45deg, var(--brand-pop) 0 10px, #c79bff 10px 20px); }
+
+/* ============================================================================
+   GRID — generic two-column layout, collapses on narrow
+   ============================================================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.grid.center { align-items: center; }
+@media (max-width: 920px) {
+  .grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ============================================================================
+   META BLOCK — small stat tile
+   ============================================================================ */
+.metric {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  padding: 12px 14px;
+}
+.metric .l {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric .v {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ============================================================================
+   SECTION HEADER
+   ============================================================================ */
+.section-h {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+.section-h::before { content: "§ "; color: var(--brand-hot); font-weight: 700; }
+
+h2.section-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
