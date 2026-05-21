@@ -110,7 +110,34 @@ Priority order — what to do first wins most attention per unit effort.
 | File | Change |
 |---|---|
 | `install.sh` line 12 | Comment updated: "Pop!_OS 24.04 (COSMIC alpha/beta)" → "Pop!_OS 24.04 LTS (COSMIC 1.0)" |
-| `themes/*.ron` | **No changes.** All three files validated against upstream. |
+| `themes/candyfactory-term-bonfire.ron` | **Rewritten 2026-05-20 post-install** — see §5b below |
+| `themes/candyfactory-bonfire-dark.ron`, `themes/candyfactory-parlor-light.ron` | No changes. Schema confirmed against upstream `cosmic-theme/src/model/{theme.rs,cosmic_palette.rs,dark.ron,light.ron}`. |
+
+## 5b. Correction — cosmic-term schema was misread on the first pass
+
+**What happened:** Spike scout 1 claimed the cosmic-term color scheme RON wraps optional hex values in `Some(...)`:
+
+```ron
+foreground: Some("#fff8e7"),  // WRONG
+dim: Some(( ... )),           // WRONG
+selection_foreground: Some("#fff8e7"),  // FIELD DOES NOT EXIST
+```
+
+The actual wire format from `cosmic-term/src/config.rs::ColorScheme`:
+
+```ron
+foreground: "#fff8e7",   // bare hex string
+dim: ( ... ),            // bare ColorSchemeAnsi tuple
+// no selection_foreground / selection_background — `deny_unknown_fields` rejects them
+```
+
+**Root cause:** The struct declares `pub foreground: Option<HexColor>` with a custom serde deserializer `de_color_opt` that takes a bare `HexColor` (string) and wraps it in `Some(...)` internally. The scout inferred RON syntax from the Rust type, didn't read the deserializer, and didn't cross-check against the canonical [`color-schemes/COSMIC Dark.ron`](https://github.com/pop-os/cosmic-term/blob/master/color-schemes/COSMIC%20Dark.ron) on disk — which uses bare strings throughout.
+
+The bundle's `CLAUDE.md` warned about exactly this: *"cosmic-term color-scheme RON schema is moving slightly — if cosmic-term rejects the scheme on import, open one of its built-in schemes for the current field names and have Claude Code reconcile."* We hit that reconcile path live on 2026-05-20 when Anta tried to import the original term file in cosmic-term and got `Failed to parse … 13:16-13:24: Expected string`.
+
+**Fix:** `themes/candyfactory-term-bonfire.ron` rewritten with bare-string syntax, `dim:` bare tuple, `selection_*` fields removed. Re-installed at `~/.config/cosmic/com.system76.CosmicTerm/v1/color_schemes/CandyFactory-Bonfire.ron` (1839 bytes, down from 2113). The 16-color ANSI palette and brand mapping are unchanged.
+
+**Process lesson** (captured in feedback memory): when validating a Rust serde-driven RON schema, do not infer wire format from struct field types alone. Custom deserializers can change the wire-format expectation entirely. Cross-check against a canonical `.ron` file on disk, or smoke-import. Both are cheap.
 
 ---
 
