@@ -9,7 +9,7 @@
 #   ./install.sh --uninstall      remove everything we wrote
 #   ./install.sh --dry-run        print what would happen
 #
-# Tested against Pop!_OS 24.04 (COSMIC alpha/beta).
+# Tested against Pop!_OS 24.04 LTS (COSMIC 1.0).
 # ═══════════════════════════════════════════════════════════════════
 
 set -euo pipefail
