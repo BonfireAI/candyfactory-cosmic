@@ -1,0 +1,8 @@
+[
+    (red: 1.0, green: 0.372549, blue: 0.635294, alpha: 1.0), // pink
+    (red: 1.0, green: 0.231373, blue: 0.419608, alpha: 1.0), // cherry
+    (red: 0.372549, green: 0.831373, blue: 0.768627, alpha: 1.0), // mint
+    (red: 1.0, green: 0.847059, blue: 0.301961, alpha: 1.0), // butter
+    (red: 0.662745, green: 0.419608, blue: 1.0, alpha: 1.0), // grape
+    (red: 0.372549, green: 0.721569, blue: 1.0, alpha: 1.0), // sky
+]
