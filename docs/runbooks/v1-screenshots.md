@@ -344,50 +344,52 @@ After Phase 4 and Phase 5 have merged, the three distribution drafts become subm
 ### 6.1 Pull latest
 
 ```bash
-cd /home/ishtar/Projects/candyfactory-cosmic
-git checkout main
-git pull origin main
+git -C /home/ishtar/Projects/candyfactory-cosmic checkout main
+git -C /home/ishtar/Projects/candyfactory-cosmic pull origin main
 ```
 
 ### 6.2 Identify what to swap
 
-Three drafts under `docs/distribution/` carry placeholders:
+Three drafts under `docs/distribution/`. Two carry placeholders that need swapping; the third (cosmic-themes.org) doesn't accept screenshots via its submission form and has no placeholders to swap — flagged here so the operator does not search for placeholders that aren't there.
 
 | File | Placeholder shape | Target |
 |------|-------------------|--------|
-| `docs/distribution/r-pop-os-post.md` | `[SCREENSHOT-1: …]` etc. — Reddit markdown image syntax | `![Bonfire desktop](https://raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/assets/screenshots/bonfire-desktop.png)` |
-| `docs/distribution/themes-ron-pr-body.md` | `[SCREENSHOT-1-RAW-URL-HERE]` — the `image:` field value | `https://raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/assets/screenshots/bonfire-desktop.png` |
-| `docs/distribution/<third-draft>.md` | (per its own placeholder convention) | (per its own target convention) |
+| `docs/distribution/r-pop-os-post.md` | `[SCREENSHOT-1: …]`, `[SCREENSHOT-2: …]`, `[SCREENSHOT-3: …]`, `[COSMIC-THEMES-ORG-LINK]` — Reddit markdown image syntax + link | `![Bonfire desktop](https://raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/assets/screenshots/bonfire-desktop.png)` etc. for the three screenshots; the cosmic-themes.org link is the live submission page URL |
+| `docs/distribution/themes-ron-pr-body.md` | `[SCREENSHOT-1-RAW-URL-HERE]` — the `image:` field value in the ron snippet | `https://raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/assets/screenshots/bonfire-desktop.png` |
+| `docs/distribution/cosmic-themes-org-submissions.md` | **No placeholders to swap** — cosmic-themes.org's submission form does not accept screenshots | (no edit needed; flagged here so the operator does not search for placeholders that aren't there) |
 
 ### 6.3 Swap, commit, PR
 
 ```bash
-git checkout -b chore/distribution-placeholder-swap
+git -C /home/ishtar/Projects/candyfactory-cosmic checkout -b chore/distribution-placeholder-swap
 
 # Edit each draft with your preferred editor, or use sed for mechanical swaps.
-# Example for the Reddit draft:
+# Example for the Reddit draft (use absolute paths so file references are explicit):
 sed -i 's|\[SCREENSHOT-1: [^]]*\]|![Bonfire desktop](https://raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/assets/screenshots/bonfire-desktop.png)|g' \
-    docs/distribution/r-pop-os-post.md
+    /home/ishtar/Projects/candyfactory-cosmic/docs/distribution/r-pop-os-post.md
 
-# (Repeat for SCREENSHOT-2 / -3 with parlor-desktop.png and cosmic-term-ansi.png.)
+# (Repeat for SCREENSHOT-2 / -3 with parlor-desktop.png and cosmic-term-ansi.png,
+#  and for [COSMIC-THEMES-ORG-LINK] with the live cosmic-themes.org submission URL.)
+# themes-ron-pr-body.md gets one swap for [SCREENSHOT-1-RAW-URL-HERE].
+# cosmic-themes-org-submissions.md is NOT edited — no placeholders to swap.
 
-git add docs/distribution/
-git status
+git -C /home/ishtar/Projects/candyfactory-cosmic add docs/distribution/
+git -C /home/ishtar/Projects/candyfactory-cosmic status
 ```
 
-**Expected status:** only the three distribution-draft files modified, nothing else.
+**Expected status:** only the two distribution-draft files modified (`r-pop-os-post.md` and `themes-ron-pr-body.md`), nothing else.
 
 ```bash
-git commit -m "chore(distribution): swap screenshot placeholders for actual refs
+git -C /home/ishtar/Projects/candyfactory-cosmic commit -m "chore(distribution): swap screenshot placeholders for actual refs
 
 Pairs with PRs <cosmic PR#>, <www PR#>."
 
-git push -u origin chore/distribution-placeholder-swap
+git -C /home/ishtar/Projects/candyfactory-cosmic push -u origin chore/distribution-placeholder-swap
 
 gh pr create --repo BonfireAI/candyfactory-cosmic --base main \
   --head chore/distribution-placeholder-swap \
   --title "chore(distribution): swap screenshot placeholders for actual refs" \
-  --body "Swaps the [SCREENSHOT-N: ...] markers in the three distribution drafts for live raw.githubusercontent.com URLs (PR <cosmic PR#>) and (where applicable) the candyfactory.ai mirror (PR <www PR#>). Drafts are now submission-ready."
+  --body "Swaps the [SCREENSHOT-N: ...] markers in the two distribution drafts that carry placeholders (r-pop-os-post.md, themes-ron-pr-body.md) for live raw.githubusercontent.com URLs (PR <cosmic PR#>) and (where applicable) the candyfactory.ai mirror (PR <www PR#>). cosmic-themes-org-submissions.md has no placeholders to swap. Drafts are now submission-ready."
 ```
 
 Self-review, merge as before.
