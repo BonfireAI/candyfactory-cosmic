@@ -53,11 +53,14 @@ SETTINGS_DIR="$CFG/com.system76.CosmicSettings/v1"
 DARK_TARGET="$THEME_DARK_DIR/CandyFactory-Bonfire"
 LIGHT_TARGET="$THEME_LIGHT_DIR/CandyFactory-Parlor"
 TERM_TARGET="$TERM_DIR/CandyFactory-Bonfire.ron"
+ACCENT_DARK_TARGET="$SETTINGS_DIR/accent_palette_dark"
+ACCENT_LIGHT_TARGET="$SETTINGS_DIR/accent_palette_light"
 
 # ── uninstall ──────────────────────────────────────────────────────
 if [ "$UNINSTALL" = "1" ]; then
     say "Uninstalling CandyFactory theme…"
-    run rm -f "$DARK_TARGET" "$LIGHT_TARGET" "$TERM_TARGET"
+    run rm -f "$DARK_TARGET" "$LIGHT_TARGET" "$TERM_TARGET" \
+              "$ACCENT_DARK_TARGET" "$ACCENT_LIGHT_TARGET"
     say "Done. Run 'cosmic-settings' to pick a different appearance."
     exit 0
 fi
@@ -80,6 +83,14 @@ run cp -f "$HERE/themes/candyfactory-parlor-light.ron" "$LIGHT_TARGET"
 say "Installing cosmic-term color scheme → $TERM_TARGET"
 run mkdir -p "$TERM_DIR"
 run cp -f "$HERE/themes/candyfactory-term-bonfire.ron" "$TERM_TARGET"
+
+say "Installing accent palette (dark) → $ACCENT_DARK_TARGET"
+run mkdir -p "$SETTINGS_DIR"
+run cp -f "$HERE/themes/candyfactory-accent-palette-dark" "$ACCENT_DARK_TARGET"
+
+say "Installing accent palette (light) → $ACCENT_LIGHT_TARGET"
+run mkdir -p "$SETTINGS_DIR"
+run cp -f "$HERE/themes/candyfactory-accent-palette-light" "$ACCENT_LIGHT_TARGET"
 
 # ── done ───────────────────────────────────────────────────────────
 cat <<'EOF'
