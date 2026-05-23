@@ -56,18 +56,19 @@ If parlor-light.ron read confirms sky has no override, **pause Slice B at Scout 
 
 None. Mechanical batch per the bundled-mechanical-tasks pattern.
 
-## 3. Slice A — Distribution drafts (four channels, draft-parked)
+## 3. Slice A — Distribution drafts (three channels, draft-parked)
+
+> **Amendment 2026-05-22 (Wave 1 Scout findings):** Original spec listed four channels. Wave 1 surfaced that (a) `Department-stack/awesome-cosmic` doesn't exist — `cosmic-utils/cosmic-project-collection` IS the de-facto "awesome COSMIC" list; (b) cosmic-tweaks reads from cosmic-themes.org's API (not from cosmic-project-collection's themes.ron — the spike was wrong on this pipeline), making cosmic-themes.org the **primary** distribution surface; (c) cosmic-themes.org takes one .ron per submission, so PopSickle = 2-3 separate form fills. Channels collapsed from 4 → 3 per Anta's Option A pick. See §10 risk register row 1 for the resolved drift.
 
 ### Deliverables
 
-Four markdown files under `docs/distribution/`:
+Three markdown files under `docs/distribution/`:
 
 | Filename | Channel | Target action |
 |---|---|---|
-| `cosmic-themes-org-listing.md` | cosmic-themes.org | Submission via the site's listing form |
-| `themes-ron-pr-body.md` | `cosmic-utils/cosmic-project-collection` | PR body adding our three themes to `themes.ron` |
-| `awesome-cosmic-pr-body.md` | `Department-stack/awesome-cosmic` | PR body adding our row to the appropriate section |
-| `r-pop-os-post.md` | r/pop_os | Reddit post (title, body, flair, posting-time guidance) |
+| `cosmic-themes-org-submissions.md` | cosmic-themes.org | **Procedure doc** covering 2-3 separate form submissions (one per .ron file). cosmic-themes.org auto-syncs into cosmic-tweaks' "Available" tab — primary distribution surface. |
+| `themes-ron-pr-body.md` | `cosmic-utils/cosmic-project-collection` | PR body adding **one entry** for the BonfireAI/candyfactory-cosmic repo to `themes.ron` (model is one entry per repo, not per theme). Low-signal channel but free reach. |
+| `r-pop-os-post.md` | r/pop_os | Reddit post (title, body, flair, posting-time guidance) — **conservative skeleton + manual-eyes-on TODO list** since Scout-4 was blocked from reddit.com. |
 
 ### Placeholder convention
 
@@ -81,8 +82,8 @@ When Anta captures shots per Slice C, he swaps markers for filenames. Zero rewor
 
 ### Voice review (two-stage Sage, per blog precedent)
 
-Each of the four drafts gets:
-- **Spec-compliance Sage** — channel platform requirements: cosmic-themes.org submission fields, themes.ron PR convention from `cosmic-utils`, awesome-cosmic README row format from `Department-stack`, r/pop_os flair + content rules.
+Each of the three drafts gets:
+- **Spec-compliance Sage** — channel platform requirements: cosmic-themes.org submission form fields (Name + Author + Link + .ron file + captcha), themes.ron PR convention from `cosmic-utils`, r/pop_os flair + content rules (per Scout-5 + Scout-4 caveats).
 - **Voice-quality Sage** — canon banlist clean, parlor cadence rules respected, no "AI brochure" register, single-purpose lede.
 
 Both Sage passes can run in parallel within the slice.
@@ -158,7 +159,7 @@ Three PRs opened with `gh pr create`. Self-reviewed per the box-self-review-thor
 No new tickets. Existing three re-used:
 
 - **BON-1236 (accent palette)** — In Progress on Wave 2 dispatch · In Review on Wave 3 · Done on merge.
-- **BON-1237 (distribution rollout)** — In Progress on Wave 2 dispatch · In Review on Wave 3 · **stays In Review on merge** with comment: *"4 drafts merged into `docs/distribution/`; cosmic-themes.org + r/pop_os submission gated on BON-1235 screenshots; themes.ron PR + awesome-cosmic PR ready to submit immediately."*
+- **BON-1237 (distribution rollout)** — In Progress on Wave 2 dispatch · In Review on Wave 3 · **stays In Review on merge** with comment: *"3 drafts merged into `docs/distribution/`. Scope re-pivoted from 4 channels (spec amendment) — awesome-cosmic dropped (doesn't exist as separate target; collapsed into cosmic-project-collection). cosmic-themes.org submissions (2-3 form fills) + r/pop_os post gated on BON-1235 screenshots. themes.ron PR ready to submit immediately."*
 - **BON-1235 (screenshots)** — stays Todo. Runbook merge does NOT close it. Comment on runbook merge: *"Runbook landed at `docs/runbooks/v1-screenshots.md`; ticket awaits capture pass on Anta's machine."*
 
 ## 8. Out of scope (explicit)
@@ -179,7 +180,9 @@ The assembly is done when all three Wizard gates have returned a verdict (SHIP o
 
 | Risk | Mitigation |
 |---|---|
-| Scout-2 finds `themes.ron` format has changed since the 2026-05-20 spike | Scout returns format diff; A-Bard adapts the PR body accordingly; surface in design-doc amendment if change is structural |
+| Scout-2 finds `themes.ron` format has changed since the 2026-05-20 spike | Scout returns format diff; A-Bard adapts the PR body accordingly; surface in design-doc amendment if change is structural. **RESOLVED 2026-05-22:** Scout-2 + Scout-3 found the spike was wrong on the cosmic-tweaks pipeline (reads cosmic-themes.org's API, not cosmic-project-collection's themes.ron), and that awesome-cosmic doesn't exist as a separate target. Spec amended (§3): 4 channels → 3. Anta picked Option A. |
+| Scout-4 blocked from reddit.com (WebFetch 403 on all 13 URL patterns tried) | r/pop_os draft becomes a conservative skeleton + an explicit manual-eyes-on TODO list (flair list, sidebar rules verbatim, 3-5 reference post titles). Anta does the manual recon before posting. |
+| Scout-1 / Scout-2 conflict on cosmic-themes.org term-scheme schema acceptance | Resolved empirically at submission time: A-Bard's cosmic-themes-org-submissions.md procedure tells Anta to attempt the term-scheme upload, observe validator response, fall back to repo-link only if rejected. |
 | `cosmic-themes.org` submission form requires fields we don't have (e.g., a specific screenshot ratio) | Scout-1 surfaces; A-Bard composes draft + flags missing fields as TODOs Anta resolves at submission time |
 | A-Sage (voice) flags multiple drafts with similar issues (e.g., over-deployment of a word per the blog precedent) | One surgical revision pass before re-gate, per the blog ship's iterate-then-ship pattern |
 | Anta's CLAUDE.md §3 hex values turn out to be ambiguous in light-vs-dark for one of the six | B-Sage flags during hex correctness check; B-Warrior cannot guess — surfaces back to Anta for canon clarification |

@@ -23,11 +23,10 @@ Files produced by this plan, organized by slice:
 - Create: `tests/test_accent_palettes.sh` (Knight test contract per spec §2 — bash since this repo has no Python infrastructure)
 - Already-present (from this plan's spec commit): `docs/superpowers/specs/2026-05-22-popsickle-v1-polish-assembly-design.md`
 
-**Slice A (branch `feat/distribution-drafts`):**
-- Create: `docs/distribution/cosmic-themes-org-listing.md`
-- Create: `docs/distribution/themes-ron-pr-body.md`
-- Create: `docs/distribution/awesome-cosmic-pr-body.md`
-- Create: `docs/distribution/r-pop-os-post.md`
+**Slice A (branch `feat/distribution-drafts`):** (Amended 2026-05-22 per Wave 1 Scout findings — see spec §3 amendment note + §10 risk register. Originally 4 files; now 3 after channel-mapping pivot.)
+- Create: `docs/distribution/cosmic-themes-org-submissions.md` (procedure doc covering 2-3 separate form fills, not a single listing)
+- Create: `docs/distribution/themes-ron-pr-body.md` (one repo entry, not three theme entries — model is one per repo)
+- Create: `docs/distribution/r-pop-os-post.md` (conservative skeleton + manual-eyes-on TODO list since Scout-4 was blocked from reddit.com)
 
 **Slice C (branch `feat/screenshot-runbook`):**
 - Create: `docs/runbooks/v1-screenshots.md`
@@ -469,26 +468,33 @@ Use `git -C /tmp/wt-cosmic-palettes <command>` for ALL git operations — NEVER
 feedback_subagent_git_must_use_dash_c_2026_05_22.)
 ```
 
-**A-Bard prompt (four distribution drafts with placeholders):**
+**A-Bard prompt (three distribution drafts with placeholders — amended per Wave 1 Scout findings):**
 ```
 You are A-Bard for the PopSickle v1-polish assembly Slice A. Voice-gated
-drafting task. Four parallel deliverables, one branch.
+drafting task. THREE parallel deliverables, one branch. (Scope was amended
+2026-05-22 from 4 → 3 channels per Wave 1 Scout findings — see spec §3
+amendment note.)
 
 Working directory: /tmp/wt-cosmic-distribution
 Branch: feat/distribution-drafts
 
 Inputs to read FIRST:
 - /home/ishtar/Projects/candyfactory-cosmic/docs/superpowers/specs/2026-05-22-popsickle-v1-polish-assembly-design.md
-  → §3 Slice A (deliverables, placeholder convention)
-  → §10 risk register (re: format changes since spike)
+  → §3 Slice A (deliverables, placeholder convention, amendment note)
+  → §10 risk register (three resolved drift items)
 - /tmp/v1-polish-brief/scout-1-cosmic-themes-org.md
-  → cosmic-themes.org submission format
+  → cosmic-themes.org form is 4 fields + captcha; one .ron per submission
 - /tmp/v1-polish-brief/scout-2-themes-ron.md
-  → themes.ron format + PR conventions
+  → themes.ron format (one entry per repo, not per theme); cosmic-tweaks
+    actually reads cosmic-themes.org API, NOT themes.ron — spike was wrong
 - /tmp/v1-polish-brief/scout-3-awesome-cosmic.md
-  → awesome-cosmic row format
+  → cosmic-project-collection IS the awesome-cosmic equivalent (Department-
+    stack/awesome-cosmic does not exist); also captures themes.ron entry
+    format (auto-generated README, schema details)
 - /tmp/v1-polish-brief/scout-4-r-pop-os.md
-  → r/pop_os post conventions
+  → reddit.com blocked from harness — Scout produced conservative skeleton
+    + manual-eyes-on TODOs; ALSO captured Catppuccin-COSMIC install pattern
+    (GUI-import via COSMIC Settings, not script-first)
 - /tmp/v1-polish-brief/scout-5-voice-prescription.md
   → REGISTER + BANLIST + per-channel overrides — BINDING
 - /home/ishtar/Projects/candyfactory-cosmic/CLAUDE.md
@@ -496,65 +502,110 @@ Inputs to read FIRST:
 - /home/ishtar/Projects/candyfactory-cosmic/README.md
   → existing voice reference
 
-Placeholder convention (BINDING — use these EXACTLY):
+Placeholder convention (BINDING — use these EXACTLY where screenshots go):
 - [SCREENSHOT-1: Bonfire desktop with grape window-hint visible]
 - [SCREENSHOT-2: Parlor desktop with grape accent + deepened pink window-hint]
 - [SCREENSHOT-3: cosmic-term ANSI palette over `ls -la`]
 
 Deliverables (in /tmp/wt-cosmic-distribution):
 
-1. CREATE `docs/distribution/cosmic-themes-org-listing.md` — full submission
-   copy following Scout-1's format requirements. Include all required fields
-   from Scout-1. Drop the three SCREENSHOT placeholders inline where shots
-   belong. Lede: ≤2 sentences hooking the candy aesthetic. Description:
-   3-5 short paragraphs. Install: one-liner per CLAUDE.md §6 Step 3 (clone
-   + ./install.sh). License: MIT. Repo URL:
-   https://github.com/BonfireAI/candyfactory-cosmic.
-   END of file: a `### Submission notes` section listing fields Anta needs
-   to manually resolve at submission time (any TODOs surfaced by Scout-1
-   that you can't pre-fill from this repo's metadata).
+1. CREATE `docs/distribution/cosmic-themes-org-submissions.md` — a
+   PROCEDURE DOC for Anta to follow when submitting to cosmic-themes.org.
+   Not a single listing; the form takes one .ron file per submission, so
+   this doc walks Anta through 2-3 separate form fills.
+
+   Structure:
+   - `# cosmic-themes.org Submissions`
+   - `## Channel context` (1 paragraph: this is the primary distribution
+     surface — cosmic-tweaks reads its API per Scout-2 finding; auto-
+     publish; ~4 fields + captcha; no description text accepted, all prose
+     lives at the Link URL = our GitHub README)
+   - `## Submission 1 — candyfactory-bonfire-dark`
+     - Name field value: <propose a name; suggest "CandyFactory · Cotton
+       Candy Parlor — Bonfire (Dark)">
+     - Author field value: "CandyFactory"
+     - Link field value: https://github.com/BonfireAI/candyfactory-cosmic
+     - .ron file to upload: themes/candyfactory-bonfire-dark.ron
+   - `## Submission 2 — candyfactory-parlor-light`
+     - same shape, dark → light naming
+   - `## Submission 3 — candyfactory-term-bonfire (CONDITIONAL — test
+     validator first)`
+     - Same shape but with a callout: per Scout-1/Scout-2 conflict, the
+       term scheme MAY be wrong-schema for cosmic-themes.org's validator
+       (which checks against desktop-palette shape via Fingel's cosmic-
+       theme-tools binary). Anta attempts upload; if validator accepts,
+       it's listed; if it rejects, document the validator response and
+       skip this submission (term scheme stays accessible via the GitHub
+       repo only).
+   - `## Submission procedure`
+     - URL: https://cosmic-themes.org/create/
+     - Steps: fill 4 fields, solve 3+3 captcha, upload .ron, submit
+     - No screenshots field — Scout-1 confirmed there is no screenshot
+       upload at cosmic-themes.org; the GitHub README at the Link URL is
+       where shots live
+   - `## Submission notes` (any TODOs Anta needs at submission time —
+     things you couldn't pre-fill, like the exact name spelling decisions)
+
+   NO `[SCREENSHOT-N: ...]` placeholders in this doc — cosmic-themes.org
+   doesn't accept screenshots. The screenshots show up on the GitHub
+   README that the Link points to (handled by the runbook in Slice C).
 
 2. CREATE `docs/distribution/themes-ron-pr-body.md` — PR body for
-   cosmic-utils/cosmic-project-collection adding our three themes. Follow
-   Scout-2's PR convention exactly. Include:
-   - `## Summary` (3-bullet what this adds)
-   - `## What changed` (the verbatim ron-snippet diff to themes.ron — three
-     entries, exact format Scout-2 captured)
-   - `## Why now` (1 paragraph — connects to the cosmic-tweaks registry
-     mechanism per our spike)
-   - `## License` (MIT, link to repo LICENSE)
-   - `## Test plan` (checkbox list: cosmic-tweaks "Available" tab shows our
-     theme after registry update; install via cosmic-tweaks works; theme
-     loads correctly)
-   - `## Linear` (BON-1237 link)
-   NO screenshots in this draft — themes.ron PRs don't typically include
-   screenshots. NO placeholders needed.
+   cosmic-utils/cosmic-project-collection adding ONE entry for the
+   BonfireAI/candyfactory-cosmic repo (model is one entry per repo, not
+   per theme — per Scout-3).
 
-3. CREATE `docs/distribution/awesome-cosmic-pr-body.md` — PR body for
-   Department-stack/awesome-cosmic. Follow Scout-3's convention. Include:
-   - `## Summary` (1 sentence)
-   - `## Changes` (verbatim Markdown row in the format Scout-3 captured)
-   - `## Why include` (1 paragraph — what's distinctive about this theme)
+   Include:
+   - `## Summary` (1-2 bullets — adds candyfactory-cosmic to themes.ron;
+     third community theme entry, first since June 2024)
+   - `## What changed` (verbatim ron-snippet adding the entry — exactly
+     follow the schema from Scout-3: name, description, repo, image
+     [optional but recommended; use raw.githubusercontent.com URL for an
+     image placeholder — `[SCREENSHOT-1-RAW-URL-HERE]` if you need a
+     placeholder, or omit image field if you'd rather])
+   - `## Why include` (1 paragraph — distinctive aesthetic that fills a
+     gap in current top-themes per Scout-4's "no sweet/playful/candy theme
+     in top 20" observation)
    - `## License` (MIT)
-   - `## Linear` (BON-1237 link)
-   NO screenshots. NO placeholders needed.
+   - `## Linear` (BON-1237 link in plain text, NOT in the PR title — per
+     feedback_no_naked_linear_ids)
 
-4. CREATE `docs/distribution/r-pop-os-post.md` — full reddit post in the
-   format Scout-4 captured. Include:
-   - `## Suggested title` (single line — follow title patterns from Scout-4)
-   - `## Suggested flair` (per Scout-4)
-   - `## Posting time` (per Scout-4)
+   NO screenshots in the PR body — Scout-3 confirmed PRs don't include
+   them; the `image:` field is the only screenshot surface (and that's
+   optional). NO `[SCREENSHOT-N: ...]` placeholders.
+
+3. CREATE `docs/distribution/r-pop-os-post.md` — CONSERVATIVE SKELETON
+   reddit post + explicit manual-eyes-on TODO list since Scout-4 was
+   blocked from reddit.com.
+
+   Include:
+   - `## Manual recon required (DO BEFORE POSTING)`
+     - Verify sidebar rules verbatim
+     - Verify flair list and pick the right one (Scout confirmed "Bug
+       Report" + "Discussion" exist; theme-share flair likely exists too
+       but unconfirmed)
+     - Read 3-5 recent successful theme-share posts; sanity-check our
+       title/body shape against theirs
+     - Verify posting time guidance
+   - `## Suggested title` (one-line conservative draft — follow Linux-rice
+     canon per Scout-4's skeleton; mark as DRAFT)
+   - `## Suggested flair` (best guess from Scout-4; note as UNVERIFIED)
+   - `## Posting time` (Scout-4 couldn't measure; note as UNVERIFIED, and
+     give a default best-guess like "Tuesday-Thursday 14:00-18:00 UTC")
    - `## Body` (the actual post body):
-     - Lede paragraph (≤3 sentences, hook the candy aesthetic)
+     - Lede paragraph (≤3 sentences, hook the candy aesthetic, mention
+       both Bonfire dark + Parlor light + cosmic-term scheme)
      - [SCREENSHOT-1: Bonfire desktop with grape window-hint visible]
      - 1-paragraph what-it-is
      - [SCREENSHOT-2: Parlor desktop with grape accent + deepened pink window-hint]
-     - 1-paragraph install instructions (link to repo + ./install.sh one-liner)
+     - 1-paragraph install instructions — per Scout-4's Catppuccin pattern
+       finding, mention the GUI-import path (cosmic-settings → Appearance
+       → Import) BEFORE the ./install.sh path; do both
      - [SCREENSHOT-3: cosmic-term ANSI palette over `ls -la`]
      - 1-paragraph what's-next + invitation to feedback
-     - End: GitHub link + MIT note
-   - `## Submission notes` (any TODOs Anta needs at posting time per
-     Scout-4's findings)
+     - End: GitHub link + MIT note + cosmic-themes.org link if our
+       submission has been made
+   - `## Submission notes` (any TODOs Anta needs)
 
 Voice constraints (BINDING — Scout-5's prescription wins on any conflict
 with these examples):
@@ -563,31 +614,34 @@ with these examples):
 - NO ban-listed phrases per Scout-5
 - NO "AI brochure" register
 - NO money/pricing/monetization language (per feedback_money_is_not_claude_codes_business)
-- Cosmic-themes.org listing = product-description register
+- cosmic-themes.org submissions doc = procedural register (it's a how-to
+  for Anta, not brand copy — voice nearly off, clarity dominant)
 - themes.ron PR body = dry/factual register
-- awesome-cosmic PR body = same
-- r/pop_os post = more casual but still on-brand
+- r/pop_os post = more casual but on-brand
 
-5. Commit your work to the `feat/distribution-drafts` branch:
+4. Commit your work to the `feat/distribution-drafts` branch:
    ```
    git -C /tmp/wt-cosmic-distribution add docs/distribution/
-   git -C /tmp/wt-cosmic-distribution commit -m "feat(distribution): draft-parked submissions for four COSMIC channels
+   git -C /tmp/wt-cosmic-distribution commit -m "feat(distribution): draft-parked submissions for three COSMIC channels
 
-   Four draft files under docs/distribution/ ready for Anta to submit:
-   - cosmic-themes.org listing (with screenshot placeholders)
-   - cosmic-utils/cosmic-project-collection themes.ron PR body
-   - Department-stack/awesome-cosmic PR body
-   - r/pop_os post (with screenshot placeholders)
+   Three draft files under docs/distribution/ ready for Anta to submit:
+   - cosmic-themes-org-submissions.md (procedure doc; 2-3 form fills)
+   - themes-ron-pr-body.md (one repo entry, cosmic-utils/cosmic-project-collection)
+   - r-pop-os-post.md (conservative skeleton + manual-eyes-on TODOs since
+     Scout-4 was blocked from reddit.com)
 
-   Two channels (cosmic-themes.org, r/pop_os) use [SCREENSHOT-N: ...]
-   placeholders per spec §3 — they ship once BON-1235 screenshots land. Two
-   channels (themes.ron PR, awesome-cosmic PR) are submission-ready now.
+   Scope amended 2026-05-22 from 4 channels per spec §3 amendment +
+   Wave 1 Scout findings: awesome-cosmic dropped (does not exist as
+   separate target from cosmic-project-collection); cosmic-themes.org
+   reframed as procedure doc (one .ron per submission).
 
-   Per Scout-1/2/3/4 platform research + Scout-5 voice prescription. Tracks
-   BON-1237 (stays In Review on merge — gated on screenshot capture)."
+   r-pop-os-post.md + cosmic-themes-org-submissions.md reference the
+   GitHub README screenshots once BON-1235 captures land; themes-ron-pr-
+   body.md is submission-ready now. Tracks BON-1237 (stays In Review
+   on merge)."
    ```
 
-6. Report back: which files you created, commit SHA, any places where
+5. Report back: which files you created, commit SHA, any places where
    Scout outputs were thin and you had to make a judgment call.
 
 DO NOT push. DO NOT open a PR. DO NOT modify the spec/plan. DO NOT modify
@@ -801,52 +855,76 @@ Write verdict to `/tmp/v1-polish-brief/sage-b-verdict.md`. Structure:
 DO NOT modify any file. DO NOT push. DO NOT open a PR. Read-only + pytest run.
 ```
 
-**A-Sage(spec) prompt (4-channel spec compliance):**
+**A-Sage(spec) prompt (3-channel spec compliance — amended):**
 ```
 You are A-Sage(spec) for PopSickle v1-polish Slice A. Spec-compliance review
-only — voice is a separate Sage.
+only — voice is a separate Sage. Slice A scope was amended 2026-05-22 from
+4 → 3 channels per spec §3 amendment.
 
 Working directory: /tmp/wt-cosmic-distribution (read-only)
 Branch: feat/distribution-drafts
 
 Inputs:
-- Spec: /home/ishtar/Projects/candyfactory-cosmic/docs/superpowers/specs/2026-05-22-popsickle-v1-polish-assembly-design.md §3
+- Spec: /home/ishtar/Projects/candyfactory-cosmic/docs/superpowers/specs/2026-05-22-popsickle-v1-polish-assembly-design.md §3 (amended)
 - Scout outputs (the bar A-Bard had to clear):
   - /tmp/v1-polish-brief/scout-1-cosmic-themes-org.md
   - /tmp/v1-polish-brief/scout-2-themes-ron.md
-  - /tmp/v1-polish-brief/scout-3-awesome-cosmic.md
-  - /tmp/v1-polish-brief/scout-4-r-pop-os.md
+  - /tmp/v1-polish-brief/scout-3-awesome-cosmic.md (covers cosmic-project-
+    collection schema since awesome-cosmic doesn't exist)
+  - /tmp/v1-polish-brief/scout-4-r-pop-os.md (reddit blocked; conservative
+    skeleton is the expected shape)
 
-Review each of the four draft files against the matching Scout's platform
-requirements. Per-channel checklist:
+Review each of the THREE draft files against the matching Scout's platform
+requirements:
 
-For each draft (cosmic-themes-org-listing.md, themes-ron-pr-body.md,
-awesome-cosmic-pr-body.md, r-pop-os-post.md):
-1. All required fields present per Scout's findings?
-2. Format conforms (Markdown tables, code blocks, link format)?
-3. Screenshot placeholders use canonical convention
-   `[SCREENSHOT-N: <description>]` and only where shots actually belong?
-4. License + repo URL + Linear reference present?
-5. Any obvious mismatch (e.g., r/pop_os post using awesome-cosmic format)?
-6. `Submission notes` section present for the two channels that need it
-   (cosmic-themes-org-listing.md, r-pop-os-post.md)?
+For `docs/distribution/cosmic-themes-org-submissions.md`:
+1. Procedure doc shape (not a single listing — covers 2-3 separate form
+   fills)?
+2. Each submission has Name + Author + Link + .ron path?
+3. Submission 3 (term scheme) has the empirical-fallback callout per spec
+   §10 risk register row 3?
+4. cosmic-themes.org URL + form-fields (4 + captcha) match Scout-1?
+5. No `[SCREENSHOT-N: ...]` placeholders (cosmic-themes.org doesn't take
+   screenshots)?
+6. `## Submission notes` section present for Anta?
+
+For `docs/distribution/themes-ron-pr-body.md`:
+1. Single ron-snippet entry (one per repo, not three per theme — per
+   Scout-3)?
+2. Schema fields correct (name, description, repo, image)?
+3. Description has no trailing period (Scout-3 convention)?
+4. If image field used: raw.githubusercontent.com URL (not github.com web
+   URL — Scout-3 PR #17 precedent)?
+5. License + repo URL + Linear reference (in body, not title) present?
+6. NO `[SCREENSHOT-N: ...]` placeholders?
+
+For `docs/distribution/r-pop-os-post.md`:
+1. `## Manual recon required` section present and prominent (top of file)?
+2. Title + flair + posting-time all marked DRAFT/UNVERIFIED?
+3. Body has the three SCREENSHOT placeholders in canonical convention?
+4. Install instructions mention BOTH GUI-import (cosmic-settings →
+   Appearance → Import) AND ./install.sh — per Scout-4's Catppuccin
+   pattern finding?
+5. Lede + body cadence match parlor voice per Scout-5?
+6. `## Submission notes` section present?
 
 Verdict: APPROVE | APPROVE-WITH-NOTES | ITERATE | HOLD (per draft)
 
-Overall verdict: worst of the four.
+Overall verdict: worst of the three.
 
 If ITERATE: list each fix per draft with exact file:line and the change.
 
 Write verdict to `/tmp/v1-polish-brief/sage-a-spec-verdict.md`. Structure:
-## Overall Verdict · ## Per-Draft Results (4 sections) · ## Iterate List.
+## Overall Verdict · ## Per-Draft Results (3 sections) · ## Iterate List.
 
 DO NOT modify any file. DO NOT push.
 ```
 
-**A-Sage(voice) prompt (4-channel voice quality):**
+**A-Sage(voice) prompt (3-channel voice quality — amended):**
 ```
 You are A-Sage(voice) for PopSickle v1-polish Slice A. Voice review only —
-spec compliance is a separate Sage.
+spec compliance is a separate Sage. Slice A scope was amended 2026-05-22
+from 4 → 3 channels per spec §3 amendment.
 
 Working directory: /tmp/wt-cosmic-distribution (read-only)
 Branch: feat/distribution-drafts
@@ -855,7 +933,7 @@ Inputs:
 - Voice prescription (BINDING):
   /tmp/v1-polish-brief/scout-5-voice-prescription.md
 - Canon banlist: re-read from
-  /home/ishtar/Projects/candyfactory-canon/04-voice/ if that exists
+  /home/ishtar/Projects/candyfactory-canon/04-voice/banlist.json
 - Spec voice cues:
   /home/ishtar/Projects/candyfactory-cosmic/docs/superpowers/specs/2026-05-22-popsickle-v1-polish-assembly-design.md §3 (Voice review)
 - Memory rule: no money/pricing/monetization language
@@ -863,30 +941,33 @@ Inputs:
 - Repo voice context: /home/ishtar/Projects/candyfactory-cosmic/README.md +
   /home/ishtar/Projects/candyfactory-cosmic/Cotton\ Candy\ Parlor\ for\ COSMIC.html
 
-Review each draft against:
+Review each of the THREE drafts against:
 1. MUST-USE register notes from Scout-5 — does each draft hit them?
-2. MUST-NOT-USE banlist from Scout-5 + canon — any words/phrases trigger?
-   (Word-frequency check: is any single word overdeployed? Blog ship found
-   "discipline" used 4× when the prescription said "once, deliberately" —
-   look for similar.)
-3. Cadence rules (sentence length, em-dash density, paragraph length) —
-   does each draft fit?
-4. Per-channel register override compliance:
-   - cosmic-themes.org = product-description register
-   - themes.ron PR = dry/factual
-   - awesome-cosmic PR = dry/factual
-   - r/pop_os post = more casual but on-brand
+2. MUST-NOT-USE banlist from Scout-5 + canon banlist.json — any
+   words/phrases trigger? (Word-frequency check: is any single word
+   overdeployed? Blog ship found "discipline" used 4× when the
+   prescription said "once, deliberately" — look for similar.)
+3. Cadence rules (sentence ≤20 words, em-dash density ~1/3 sentences,
+   paragraphs 1-4 sentences) — does each draft fit?
+4. Per-channel register override compliance per Scout-5:
+   - cosmic-themes-org-submissions.md = procedural register (how-to for
+     Anta; voice nearly off; clarity dominant)
+   - themes-ron-pr-body.md = dry/factual register
+   - r-pop-os-post.md = more casual but on-brand (closest to brand
+     surface; most voice-load)
 5. Money/pricing language — ZERO tolerance per memory rule.
 6. AI brochure register markers (e.g., "revolutionary", "industry-leading",
-   "best-in-class") — ZERO tolerance.
+   "best-in-class", "elevate", "transform", "unleash", "redefines",
+   "reimagines", "the future of", "designed for creators") — ZERO
+   tolerance.
 
 Verdict: APPROVE | APPROVE-WITH-NOTES | ITERATE | HOLD (per draft)
 
-If ITERATE: list each voice issue with exact file:line + the fix (the actual
-substitute phrasing, not "rewrite this paragraph").
+If ITERATE: list each voice issue with exact file:line + the fix (the
+actual substitute phrasing, not "rewrite this paragraph").
 
 Write verdict to `/tmp/v1-polish-brief/sage-a-voice-verdict.md`. Structure:
-## Overall Verdict · ## Per-Draft Voice Notes (4 sections) · ## Word-
+## Overall Verdict · ## Per-Draft Voice Notes (3 sections) · ## Word-
 Frequency Anomalies · ## Iterate List (with exact substitutions).
 
 DO NOT modify any file. DO NOT push.
@@ -1112,38 +1193,42 @@ git -C /tmp/wt-cosmic-distribution push -u origin feat/distribution-drafts
 
 ```bash
 gh pr create --repo BonfireAI/candyfactory-cosmic --base main --head feat/distribution-drafts \
-  --title "feat(distribution): paste-ready submissions for four COSMIC channels" \
+  --title "feat(distribution): paste-ready submissions for three COSMIC channels" \
   --body "$(cat <<'EOF'
 ## Summary
 
-Four draft files under `docs/distribution/` — paste-ready submissions for
-the COSMIC-native distribution channels identified in our 2026-05-20 spike.
+Three draft files under `docs/distribution/` — paste-ready submissions for
+the COSMIC-native distribution channels. Scope amended 2026-05-22 from 4
+→ 3 channels per Wave 1 Scout findings (see spec §3 amendment note).
 
 ## What changed
 
-- `docs/distribution/cosmic-themes-org-listing.md` — full submission copy
-  with `[SCREENSHOT-N: ...]` placeholders for the three shots
-- `docs/distribution/themes-ron-pr-body.md` — full PR body for
-  cosmic-utils/cosmic-project-collection adding our three themes
-- `docs/distribution/awesome-cosmic-pr-body.md` — full PR body for
-  Department-stack/awesome-cosmic
-- `docs/distribution/r-pop-os-post.md` — full reddit post with title +
-  flair + posting-time guidance + screenshot placeholders
+- `docs/distribution/cosmic-themes-org-submissions.md` — procedure doc for
+  2-3 separate form fills (one .ron per submission). cosmic-themes.org is
+  the primary distribution surface (cosmic-tweaks reads its API).
+- `docs/distribution/themes-ron-pr-body.md` — PR body for
+  cosmic-utils/cosmic-project-collection adding ONE entry for the
+  BonfireAI/candyfactory-cosmic repo (model is one per repo, not per
+  theme). cosmic-project-collection IS the de-facto "awesome COSMIC" —
+  no separate Department-stack/awesome-cosmic exists.
+- `docs/distribution/r-pop-os-post.md` — conservative reddit skeleton +
+  prominent manual-recon TODO list (Scout-4 was blocked from reddit.com;
+  Anta does the eyes-on verification before posting).
 
 ## Ship readiness
 
-Two channels are submission-ready now:
+One channel is submission-ready now:
 - cosmic-utils/cosmic-project-collection themes.ron PR
-- Department-stack/awesome-cosmic PR
 
 Two channels need BON-1235 screenshots before submission:
-- cosmic-themes.org listing
-- r/pop_os post
+- cosmic-themes.org submissions (the GitHub README that Link points to
+  needs the shots)
+- r/pop_os post (post body uses [SCREENSHOT-N: ...] placeholders)
 
 ## Linear
 
 Tracks BON-1237. Ticket stays In Review on merge (gated on BON-1235
-screenshot capture for two of four channels).
+screenshot capture).
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 EOF
@@ -1297,7 +1382,7 @@ Leave for Anta to PR/merge per his ishtar-repo discipline.
 | §1 Context | Task 1 (sets up branch + tag) |
 | §2 Slice B deliverables | Task 4 (B-Warrior), Task 5 (B-Sage), Task 6 (B Wizard) |
 | §2 Anta-blocker checkpoint | Task 4 Step 1 (pre-check), Task 4 Step 2 (orchestrator fills before dispatch) |
-| §3 Slice A deliverables | Task 4 (A-Bard), Task 5 (A-Sages spec + voice), Task 7 (A Wizard) |
+| §3 Slice A deliverables (3 channels, amended) | Task 4 (A-Bard), Task 5 (A-Sages spec + voice), Task 7 (A Wizard) |
 | §3 Placeholder convention | Task 4 A-Bard prompt (binding convention named) |
 | §4 Slice C deliverables | Task 4 (C-Bard), Task 5 (C-Sage), Task 8 (C Wizard) |
 | §5 Cadre dispatch shape | Tasks 2 (Wave 1), 3-4 (Wave 2), 5 (Wave 3), 6-8 (Wave 4), 9-11 (Wave 5) |
