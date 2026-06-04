@@ -21,18 +21,34 @@ based on the **CandyFactory** brand world.
 
 ## § Install
 
+There are two ways in. Use the script — manual Import is the fallback, not a
+second step. You don't need both.
+
+### The script — recommended
+
 ```bash
 chmod +x install.sh
 ./install.sh --dry-run        # see what will happen
 ./install.sh                  # do it
 ```
 
-Then in COSMIC:
+The script copies the themes straight into COSMIC's config, so they show up
+**already in the picker** — no Import needed. After it runs, in COSMIC:
 
-1. `Settings → Desktop → Appearance` → **Import** → pick one of the `.ron` files in `themes/`.
-2. `cosmic-term → View → Color schemes → Import` → pick `candyfactory-term-bonfire.ron`.
+1. `Settings → Desktop → Appearance` → pick **CandyFactory-Bonfire** (dark) or
+   **CandyFactory-Parlor** (light) from the list.
+2. `cosmic-term → View → Color schemes` → pick **CandyFactory Bonfire**.
 
-To revert:
+### Manual Import — the alternative
+
+If you'd rather not run the script, import the `.ron` files by hand:
+
+1. `Settings → Desktop → Appearance` → **Import** → pick one of the `.ron` files
+   in `themes/`.
+2. `cosmic-term → View → Color schemes → Import` → pick
+   `themes/candyfactory-term-bonfire.ron`.
+
+To revert the script's install:
 
 ```bash
 ./install.sh --uninstall
