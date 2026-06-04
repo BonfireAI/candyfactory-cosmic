@@ -51,7 +51,7 @@ RON schema, installer rules, validation steps.
 
 ## § Credits
 
-- Brand world: [candy-factory.ai](https://candy-factory.ai) · Cotton Candy Parlor.
+- Brand world: [candyfactory.ai](https://candyfactory.ai) · Cotton Candy Parlor.
 - Theme schema: System76 COSMIC desktop ([github.com/pop-os/cosmic-epoch](https://github.com/pop-os/cosmic-epoch)).
 
 § Stay close.
