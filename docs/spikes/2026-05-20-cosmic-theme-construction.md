@@ -96,7 +96,7 @@ Priority order — what to do first wins most attention per unit effort.
 | 3 | **cosmic-utils/cosmic-project-collection** themes.ron PR | Auto-listing in cosmic-tweaks "Available" tab. Highest passive-discovery leverage. |
 | 4 | **Department-stack/awesome-cosmic** PR | Curated community list. Developer/power-user surface. |
 | 5 | **r/pop_os** showcase post | Where COSMIC users actually live. One good screenshot = velocity. Catppuccin COSMIC's path. |
-| 6 | **candy-factory.ai/cosmic** | Our own brand surface. Hub HTML deployed via `candyfactory-www`. |
+| 6 | **candyfactory.ai/cosmic** | Our own brand surface. Hub HTML deployed via `candyfactory-www`. |
 | 7 | **Mastodon @system76 ping** | Possible boost from System76. |
 
 **Skipped intentionally:**
@@ -147,7 +147,7 @@ Filed as Linear tickets under the *CandyFactory · Cotton Candy Parlor for COSMI
 
 1. **MIT LICENSE** — added in this commit
 2. **GitHub public push** — `BonfireAI/candyfactory-cosmic`
-3. **Deploy hub at `candy-factory.ai/cosmic`** — via `candyfactory-www`
+3. **Deploy hub at `candyfactory.ai/cosmic`** — via `candyfactory-www`
 4. **Capture v1 screenshots** (3 minimum: Bonfire desktop, Parlor desktop, cosmic-term in Bonfire) — gated behind Anta running `./install.sh` on his live machine
 5. **Generate `accent_palette_{dark,light}` files** (CLAUDE.md §6 Step 2) — optional polish, exposes our candy palette in COSMIC's accent picker
 6. **Distribution rollout** (cosmic-themes.org submission + cosmic-utils themes.ron PR + awesome-cosmic PR + r/pop_os post) — gated on screenshots + GitHub URL
