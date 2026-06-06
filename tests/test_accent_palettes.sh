@@ -23,6 +23,14 @@ INSTALL="$REPO/install.sh"
 TMPHOME="$(mktemp -d)"
 trap 'rm -rf "$TMPHOME"' EXIT
 
+# install.sh resolves its config base as ${XDG_CONFIG_HOME:-$HOME/.config}.
+# Overriding HOME is therefore not enough: when XDG_CONFIG_HOME is set in the
+# ambient environment (as it is on CI runners), install.sh writes under that
+# path while the tests assert against "$TMPHOME/.config". Pin XDG_CONFIG_HOME
+# to the fake home so install.sh's target always matches what the tests check,
+# regardless of the inherited value. install.sh behaviour is unchanged.
+export XDG_CONFIG_HOME="$TMPHOME/.config"
+
 PASS_COUNT=0
 FAIL_COUNT=0
 
@@ -291,7 +299,8 @@ test_install_sh_uninstall_is_noop_when_absent() {
     local n="test_install_sh_uninstall_is_noop_when_absent"
     local cleanhome
     cleanhome="$(mktemp -d)"
-    if HOME="$cleanhome" bash "$INSTALL" --uninstall >/dev/null 2>&1; then
+    if HOME="$cleanhome" XDG_CONFIG_HOME="$cleanhome/.config" \
+        bash "$INSTALL" --uninstall >/dev/null 2>&1; then
         rm -rf "$cleanhome"
         pass "$n"
     else
