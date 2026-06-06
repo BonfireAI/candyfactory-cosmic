@@ -20,3 +20,6 @@ jobs:
 
       - name: Run the accent-palette test suite
         run: bash tests/test_accent_palettes.sh
+
+      - name: Validate the theme RONs
+        run: bash tests/test_theme_rons.sh
