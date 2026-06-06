@@ -29,9 +29,10 @@ candyfactory-cosmic/
 ├── themes/
 │   ├── candyfactory-bonfire-dark.ron      ← COSMIC dark theme
 │   ├── candyfactory-parlor-light.ron      ← COSMIC light theme
-│   └── candyfactory-term-bonfire.ron      ← cosmic-term scheme
+│   ├── candyfactory-term-bonfire.ron      ← cosmic-term scheme
+│   ├── candyfactory-accent-palette-dark   ← dark accent picker palette
+│   └── candyfactory-accent-palette-light  ← light accent picker palette
 └── assets/
-    ├── candyfactory-logo.png
     └── parlor.css                         ← reference design tokens
 ```
 
@@ -194,7 +195,7 @@ chmod +x install.sh
 ./install.sh                  # for real
 ```
 
-It copies the three RONs and three PNGs to the right places. Idempotent. `--uninstall` undoes it.
+It copies the three RONs and the two accent palettes to the right places. Idempotent. `--uninstall` undoes it.
 
 ### Step 4 — Apply in COSMIC Settings
 1. `Settings → Desktop → Appearance` → click `Import`, browse to `themes/candyfactory-bonfire-dark.ron` (or `-parlor-light.ron`). The theme appears in the list — select it.
