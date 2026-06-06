@@ -14,6 +14,8 @@ based on the **CandyFactory** brand world.
 | `themes/candyfactory-bonfire-dark.ron`            | COSMIC dark theme — ink + pink + grape    |
 | `themes/candyfactory-parlor-light.ron`            | COSMIC light theme — cream + grape + mint |
 | `themes/candyfactory-term-bonfire.ron`            | cosmic-term color scheme — "candied dark" |
+| `themes/candyfactory-accent-palette-dark`         | Candy hues for the dark accent picker      |
+| `themes/candyfactory-accent-palette-light`        | Candy hues for the light accent picker     |
 | `install.sh`                                      | One-shot installer (safe to re-run)        |
 | `CLAUDE.md`                                       | Spec sheet for regenerating with Claude Code |
 
