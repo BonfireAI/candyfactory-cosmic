@@ -110,7 +110,7 @@ URL: `https://cosmic-themes.org/create/`
 
 No screenshots field exists on the form — Scout-1 confirmed this against the
 public source at `Fingel/cosmic-themes-org-py`. Screenshots live on the
-GitHub README at the Link URL, handled separately by the runbook in Slice C.
+GitHub README at the Link URL, handled separately by the runbook.
 
 ---
 
@@ -126,13 +126,13 @@ Open TODOs Anta needs to handle at submission time:
       site's source could swap to a different math question. Read the
       prompt before answering.
 - [ ] If Submission 3 (term scheme) rejects, paste the validator error
-      response below for the Sage / Wizard review record:
+      response below for the review record:
 
   > **Submission 3 validator response (if rejected):**
   > `[paste error here]`
 
 - [ ] After each successful submission, capture the listing URL
-      (`https://cosmic-themes.org/<id>/`) for the runbook + Linear ticket
-      BON-1235's screenshots TODO.
+      (`https://cosmic-themes.org/<id>/`) for the runbook's
+      screenshots TODO.
 - [ ] If Anta wants to rename or remove a listing later: the site has no
       edit UI. File a GitHub issue against `Fingel/cosmic-themes-org-py`.
