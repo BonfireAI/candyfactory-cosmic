@@ -2,7 +2,7 @@
 # ═══════════════════════════════════════════════════════════════════
 # tests/test_accent_palettes.sh
 #
-# Knight tests for Slice B (BON-1236) — accent palette files.
+# Tests for the accent palette files.
 # Asserts the dark palette matches CLAUDE.md §6 Step 2 verbatim,
 # the light palette matches parlor-light.ron semantic-role
 # overrides plus the deepened-sky from the palette "blue:" slot,
