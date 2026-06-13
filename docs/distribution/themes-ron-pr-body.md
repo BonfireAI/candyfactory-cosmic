@@ -43,7 +43,7 @@ screenshot in `BonfireAI/candyfactory-cosmic`'s `main` branch (per the
 established convention — Scout-3 cites PR #17 specifically fixing several
 applets to use raw URLs instead of github.com web URLs). The placeholder
 `[SCREENSHOT-1-RAW-URL-HERE]` will be swapped for the actual URL once
-BON-1235's screenshot capture lands; the file lives at
+the screenshot capture lands; the file lives at
 `raw.githubusercontent.com/BonfireAI/candyfactory-cosmic/main/<path>` once
 the asset is committed to `main`.
 
@@ -67,10 +67,9 @@ Adding it gives the `Themes` section a third distinct visual direction.
 MIT (the listing repo; the project-collection registry itself is GPL-3.0
 and accepts mixed licenses per its existing catppuccin/MIT entry).
 
-## Linear
+## Tracking
 
-Tracking ticket: BON-1237 (kept out of the PR title per workshop
-convention).
+The tracking ticket is kept out of the PR title.
 
 ---
 
