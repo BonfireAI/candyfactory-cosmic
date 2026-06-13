@@ -1,7 +1,7 @@
 # r/pop_os post — Cotton Candy Parlor for COSMIC
 
-Conservative skeleton. Scout-4 was blocked from `reddit.com` for the entire
-recon session (every reddit URL and every mirror returned 403 or block),
+Conservative skeleton. The recon was blocked from `reddit.com` for the entire
+session (every reddit URL and every mirror returned 403 or block),
 so the items below marked UNVERIFIED need Anta's eyes on the subreddit
 before the post goes live.
 
@@ -13,7 +13,7 @@ before the post goes live.
       sidebar rules verbatim. Confirm no clause against theme-share posts,
       self-promotion limits, or required tags.
 - [ ] Open the post-create modal on r/pop_os and enumerate the actual
-      flair list. Scout-4 confirmed only `Bug Report` and `Discussion`
+      flair list. The recon confirmed only `Bug Report` and `Discussion`
       exist via search-snippet fragments; a theme-share / Showcase /
       Customization flair likely exists but is unconfirmed.
 - [ ] Read 3–5 recent successful theme-share posts on r/pop_os (sort by
@@ -21,7 +21,7 @@ before the post goes live.
       shape below against the cadence those posts use — adjust if the
       sub's house style diverges from what's drafted here.
 - [ ] Verify posting time guidance against actual r/pop_os engagement
-      patterns. Scout-4 couldn't measure subreddit-specific times; the
+      patterns. The recon couldn't measure subreddit-specific times; the
       best-guess below leans on general Reddit-timing studies.
 
 ---
@@ -37,14 +37,14 @@ karma-bait phrasing, names the three artifacts.
 ## Suggested flair
 
 `Customization` if it exists, else `Showcase`, else `Discussion`.
-**UNVERIFIED** — Scout-4 was blocked from confirming the flair list.
+**UNVERIFIED** — the recon was blocked from confirming the flair list.
 Confirm in the post-create modal before submitting.
 
 ## Posting time
 
 Saturday or Sunday mid-morning Pacific (≈ Tuesday–Thursday 14:00–18:00 UTC
 on weekdays as a fallback). **UNVERIFIED** for r/pop_os specifically — this
-is generic Linux-subreddit guidance from Scout-4's indirect sources.
+is generic Linux-subreddit guidance from indirect sources.
 
 ---
 

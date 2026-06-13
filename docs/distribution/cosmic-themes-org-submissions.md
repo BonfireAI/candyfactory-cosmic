@@ -10,8 +10,8 @@ single listing — each theme file becomes its own page on the directory.
 
 `cosmic-themes.org` is the primary distribution surface for COSMIC desktop
 color schemes. The `cosmic-tweaks` "Available" tab pulls directly from this
-site's API (`https://cosmic-themes.org/api/themes/?limit=50000`, per
-Scout-2's read of `cosmic-utils/tweaks/src/app/pages/color_schemes/mod.rs`),
+site's API (`https://cosmic-themes.org/api/themes/?limit=50000`, per the
+public source `cosmic-utils/tweaks/src/app/pages/color_schemes/mod.rs`),
 which means anything landed here also lands inside the Tweaks GUI for every
 COSMIC user. Auto-publish — there is no human review queue; if the
 `cosmic-theme-tools` validator parses the file and the captcha is solved,
@@ -71,7 +71,7 @@ cream will read as distinct against the dark-dominant index.
 | .ron    | `themes/candyfactory-term-bonfire.ron`                       |
 | Captcha | `6`                                                          |
 
-> **Heads up — validator may reject this file.** Per Scout-1 / Scout-2,
+> **Heads up — validator may reject this file.** Per the recon,
 > `cosmic-themes.org` runs every upload through Fingel's `cosmic-theme-tools`
 > binary, which parses against the **desktop palette schema** (the shape
 > documented in CLAUDE.md §4 — `palette: Dark(( ... ))` + `bg_color`,
@@ -108,7 +108,7 @@ URL: `https://cosmic-themes.org/create/`
    look right against the site's mock-window chrome.
 10. Repeat for the next submission.
 
-No screenshots field exists on the form — Scout-1 confirmed this against the
+No screenshots field exists on the form — confirmed against the
 public source at `Fingel/cosmic-themes-org-py`. Screenshots live on the
 GitHub README at the Link URL, handled separately by the runbook.
 

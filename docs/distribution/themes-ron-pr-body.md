@@ -1,7 +1,7 @@
 # cosmic-utils/cosmic-project-collection — themes.ron PR body
 
 PR body draft for adding one entry to `themes.ron` in
-`cosmic-utils/cosmic-project-collection`. Per Scout-3, the registry model is
+`cosmic-utils/cosmic-project-collection`. The registry model is
 one entry per **repo**, not per individual theme — so this is a single tuple
 block adding `BonfireAI/candyfactory-cosmic`, not three.
 
@@ -40,7 +40,7 @@ and inserts the block below.
 
 The `image:` value is a `raw.githubusercontent.com` URL pointing at a
 screenshot in `BonfireAI/candyfactory-cosmic`'s `main` branch (per the
-established convention — Scout-3 cites PR #17 specifically fixing several
+established convention — PR #17 specifically fixes several
 applets to use raw URLs instead of github.com web URLs). The placeholder
 `[SCREENSHOT-1-RAW-URL-HERE]` will be swapped for the actual URL once
 the screenshot capture lands; the file lives at
@@ -58,7 +58,7 @@ PR once the screenshot is hosted.
 The two existing `themes.ron` entries cover broad-aesthetic territory
 (catppuccin pastel; cosmic-themes.org as a meta-link). `candyfactory-cosmic`
 fills a different visual niche — pink + grape + cream over ink — that the
-current top-20 of `cosmic-themes.org` does not occupy (Scout-4's read of
+current top-20 of `cosmic-themes.org` does not occupy (a read of
 the top-20 downloads found no "sweet" or "playful" aesthetic in the list).
 Adding it gives the `Themes` section a third distinct visual direction.
 
@@ -75,7 +75,7 @@ The tracking ticket is kept out of the PR title.
 
 ## Local validation before opening the PR
 
-Per Scout-3, the post-merge CI runs `cargo run` to regenerate `README.md`
+The post-merge CI runs `cargo run` to regenerate `README.md`
 from the `.ron` source files via `src/readme.rs` — and there is no PR-side
 CI gate. Malformed RON would panic at `ron::from_str(...).unwrap()` in the
 post-merge build, so validate locally first:
@@ -94,8 +94,8 @@ with the correct repo URL and (if `image:` is set) the screenshot.
 ## Submission notes
 
 - Do not edit `README.md` directly in the PR — it's auto-generated. The
-  Rust binary regenerates it on push to `main`. Scout-3 cites PR #60's
-  rejection for this exact mistake.
+  Rust binary regenerates it on push to `main`. PR #60 was rejected
+  for this exact mistake.
 - The repo has no `CONTRIBUTING.md`, no PR template, no `.github/ISSUE_TEMPLATE/`.
 - The README's "How to add your project?" copy only names `applications.ron`
   and `applets.ron` — `themes.ron` is accepted but the docs lag. Worth
